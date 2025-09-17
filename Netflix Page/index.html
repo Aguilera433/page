@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carla :D</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="img/logo2.png" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+      
+      <header>
+        <a href="#" class="logo">
+          <img src="img/logo.png" alt="logo de netflix"/>
+        </a>
+        <ul class="navigation">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Series</a></li>
+          <li><a href="#">Películas</a></li>
+          <li><a href="#">Recientes</a></li>
+          <li><a href="#">Mi lista</a></li>
+        </ul>
+        <div class="search">
+          <input type="text" placeholder="Busca tu serie fav!" />
+          <button class="btnbuscar">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- BANNER STRANGER THINGS -->
+      <section class="banner">
+        <!-- Fondo (antes era video, ahora usamos imagen con misma clase bg) -->
+        <img src="img/bn.jpg" alt="Stranger Things personaje" class="bg"/>
+
+        <!-- sombra -->
+        <span class="sombraimg"></span>
+
+        <!-- contenido -->
+        <div class="content">
+          <img src="img/250px-Stranger_Things_Logo.png" class="movietitle" alt="Stranger Things logo"/>
+          <h4>
+            <span>2016</span>
+            <span><i>16+</i></span>
+            <span>4 temporadas</span>
+            <span>Serie</span>
+          </h4>
+          <p>
+            En el pueblo de Hawkins, un grupo de amigos se enfrenta a fuerzas sobrenaturales
+            después de la misteriosa desaparición de un niño. Entre experimentos secretos,
+            dimensiones paralelas y el aterrador Demogorgon, nada volverá a ser igual.
+          </p>
+          <div class="buttons">
+            <a href="#" onclick="playVideo();">Play</a>
+            <a href="#">My List</a>
+          </div>
+        </div>
+
+        <!-- botón trailer -->
+        <a href="#" class="play" onclick="togglevideo();">
+          <img src="img/play4.png" alt="Play"/> Ver trailer
+        </a>
+      </section>
+
+      <!-- SECCIÓN TRAILER -->
+      <section class="trailer">
+        <video id="popupVideo" src="img/trailer.mp4" controls></video>
+        <img src="img/close.png" class="close" onclick="togglevideo();" alt="Cerrar"/>
+      </section>
+    </main>
+
+    <script>
+      function togglevideo(){
+        const trailer = document.querySelector(".trailer");
+        const video = document.getElementById("popupVideo");
+        trailer.classList.toggle("active");
+        if(!trailer.classList.contains("active")){
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+
+      function playVideo(){
+        const video = document.getElementById("popupVideo");
+        const trailer = document.querySelector(".trailer");
+        trailer.classList.add("active");
+        video.play();
+      }
+    </script>
+  </body>
+</html>
